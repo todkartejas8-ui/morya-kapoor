@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Morya Essentials | Pure by Faith</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#0f1c24;
+  color:#fff;
+}
+
+/* MENU */
+.menu-btn{
+  position:fixed;
+  top:20px;
+  right:20px;
+  font-size:28px;
+  cursor:pointer;
+  z-index:1000;
+}
+
+.menu{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:70%;
+  height:100%;
+  background:#13232f;
+  padding:60px 30px;
+  transition:0.3s;
+  z-index:999;
+}
+.menu a{
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  font-size:18px;
+  margin:18px 0;
+}
+.menu.open{right:0}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:34px;
+  margin-bottom:15px;
+}
+.hero p{
+  font-size:16px;
+  opacity:0.9;
+}
+.hero button{
+  margin-top:30px;
+  padding:14px 30px;
+  border:none;
+  border-radius:30px;
+  background:#f5c16c;
+  color:#000;
+  font-size:16px;
+  cursor:pointer;
+}
+
+/* FESTIVAL */
+.festival{
+  background:#13232f;
+  padding:40px 20px;
+  text-align:center;
+}
+.festival h2{
+  font-family:'Playfair Display',serif;
+  margin-bottom:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<div class="menu" id="menu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="essence.html" onclick="toggleMenu()">Our Essence</a>
+  <a href="trust.html" onclick="toggleMenu()">Trusted by Faith</a>
+  <a href="products.html" onclick="toggleMenu()">Products</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+</div>
+
+<section class="hero">
+  <h1 id="heroTitle"></h1>
+  <p id="heroSub"></p>
+  <button onclick="location.href='products.html'">Explore Products</button>
+</section>
+
+<section class="festival">
+  <h2 id="festivalTitle"></h2>
+  <p id="festivalText"></p>
+</section>
+
+<script>
+/* MENU */
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("open");
+}
+
+/* LANGUAGE */
+let lang = localStorage.getItem("siteLang") || "en";
+
+const content = {
+  en:{
+    heroTitle:"Camphor, Refined for Pure Devotion",
+    heroSub:"Crafted for rituals. Trusted in faith."
+  },
+  mr:{
+    heroTitle:"शुद्ध भक्तीसाठी परिष्कृत कपूर",
+    heroSub:"पूजा आणि श्रद्धेसाठी निर्मित"
+  }
+};
+
+document.getElementById("heroTitle").innerText = content[lang].heroTitle;
+document.getElementById("heroSub").innerText = content[lang].heroSub;
+
+/* FESTIVAL AUTO SYSTEM */
+let today = new Date();
+let month = today.getMonth()+1;
+
+if(month==9){
+  document.getElementById("festivalTitle").innerText =
+    lang=="mr"?"गणेशोत्सव विशेष":"Ganesh Chaturthi Special";
+  document.getElementById("festivalText").innerText =
+    lang=="mr"?"आरतीसाठी शुद्ध कपूर":"Pure camphor for aarti & abhishek";
+}
+else if(month==10 || month==11){
+  document.getElementById("festivalTitle").innerText =
+    lang=="mr"?"दिवाळी पूजा साहित्य":"Diwali Pooja Essentials";
+  document.getElementById("festivalText").innerText =
+    lang=="mr"?"प्रकाशमय श्रद्धा":"Illuminate your devotion with purity";
+}
+else{
+  document.getElementById("festivalTitle").innerText =
+    lang=="mr"?"दररोजची पूजा":"Daily Pooja Essentials";
+  document.getElementById("festivalText").innerText =
+    lang=="mr"?"दैनंदिन पूजेसाठी शुद्ध कपूर":"Pure camphor for everyday rituals";
+}
+</script>
+
+</body>
+</html>
