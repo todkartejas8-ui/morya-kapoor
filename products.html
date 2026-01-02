@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Morya Essentials | Products</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:Segoe UI, sans-serif;
+  background:#f5f5f5;
+}
+
+header{
+  background:#0f2027;
+  color:#fff;
+  padding:16px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand{
+  font-size:22px;
+  font-weight:700;
+}
+
+.menu-btn{
+  font-size:26px;
+  cursor:pointer;
+}
+
+nav{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:260px;
+  height:100%;
+  background:#111;
+  color:#fff;
+  padding:30px 20px;
+  transition:0.4s;
+}
+
+nav a{
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  margin:18px 0;
+}
+
+.close{
+  font-size:24px;
+  text-align:right;
+  cursor:pointer;
+}
+
+/* PRODUCTS */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+h1{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+  text-align:center;
+}
+
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:12px;
+}
+
+.card h3{
+  margin:15px 0 8px;
+}
+
+.card p{
+  font-size:14px;
+  color:#666;
+}
+
+.card button{
+  margin-top:12px;
+  padding:12px;
+  width:100%;
+  border:none;
+  background:#2c5364;
+  color:#fff;
+  font-size:15px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.card button:hover{
+  opacity:0.9;
+}
+
+/* ORDER FORM */
+.form-box{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  justify-content:center;
+  align-items:center;
+}
+
+form{
+  background:#fff;
+  padding:25px;
+  width:90%;
+  max-width:380px;
+  border-radius:16px;
+}
+
+form h2{
+  margin-bottom:15px;
+}
+
+form input, form textarea{
+  width:100%;
+  padding:10px;
+  margin-bottom:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+form button{
+  width:100%;
+  padding:12px;
+  background:#0f2027;
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  font-size:16px;
+}
+
+.close-form{
+  text-align:right;
+  font-size:18px;
+  cursor:pointer;
+  margin-bottom:10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">Morya Essentials</div>
+  <div class="menu-btn" onclick="openMenu()">☰</div>
+</header>
+
+<nav id="menu">
+  <div class="close" onclick="closeMenu()">✕</div>
+  <a href="index.html">Home</a>
+  <a href="products.html">Products</a>
+  <a href="essence.html">Our Essence</a>
+  <a href="trust.html">Trust</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<div class="container">
+  <h1>Our Products</h1>
+
+  <div class="products">
+
+    <!-- PRODUCT 1 -->
+    <div class="card">
+      <img src="product1.jpg">
+      <h3>Premium Camphor Tablets</h3>
+      <p>Pure devotion quality camphor</p>
+      <button onclick="orderNow('Premium Camphor Tablets')">Order Now</button>
+    </div>
+
+    <!-- PRODUCT 2 -->
+    <div class="card">
+      <img src="product2.jpg">
+      <h3>Camphor Powder</h3>
+      <p>Refined for rituals & faith</p>
+      <button onclick="orderNow('Camphor Powder')">Order Now</button>
+    </div>
+
+    <!-- ADD MORE PRODUCTS SAME WAY -->
+
+  </div>
+</div>
+
+<!-- ORDER FORM -->
+<div class="form-box" id="orderBox">
+  <form action="https://formsubmit.co/help.moryatraders@gmail.com" method="POST">
+    <div class="close-form" onclick="closeForm()">✕</div>
+
+    <h2 id="productName"></h2>
+
+    <input type="hidden" name="Product" id="productInput">
+
+    <input type="text" name="Name" placeholder="Your Name" required>
+    <input type="tel" name="Mobile" placeholder="Mobile Number" required>
+    <input type="number" name="Quantity" placeholder="Quantity" required>
+    <textarea name="Address" placeholder="Delivery Address" required></textarea>
+
+    <input type="hidden" name="_subject" value="New Order - Morya Essentials">
+    <input type="hidden" name="_captcha" value="false">
+
+    <button type="submit">Place Order</button>
+  </form>
+</div>
+
+<script>
+/* LANGUAGE CHECK */
+if(!localStorage.getItem("siteLang")){
+  window.location.href="language.html";
+}
+
+/* MENU */
+function openMenu(){
+  document.getElementById("menu").style.right="0";
+}
+function closeMenu(){
+  document.getElementById("menu").style.right="-100%";
+}
+
+/* ORDER */
+function order
