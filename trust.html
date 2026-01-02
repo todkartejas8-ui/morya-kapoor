@@ -169,6 +169,42 @@ else if(today==11){
   festivalBox.innerHTML="<h2>Shubh Diwali 🪔</h2><p>Illuminate your rituals with pure camphor</p>";
 }
 </script>
+<script>
+const lang = localStorage.getItem("siteLang") || "en";
 
+const textData = {
+  en: {
+    homeTitle: "Camphor, Refined for Pure Devotion",
+    products: "Our Products",
+    order: "Order Now",
+    trustTitle: "Our Essence of Trust",
+    contactTitle: "Contact Us",
+    name: "Your Name",
+    qty: "Quantity",
+    message: "Your Message",
+    send: "Send Enquiry"
+  },
+  mr: {
+    homeTitle: "शुद्ध भक्तीसाठी परिष्कृत कपूर",
+    products: "आमची उत्पादने",
+    order: "ऑर्डर करा",
+    trustTitle: "आमचा विश्वास",
+    contactTitle: "संपर्क करा",
+    name: "तुमचे नाव",
+    qty: "प्रमाण",
+    message: "तुमचा संदेश",
+    send: "चौकशी पाठवा"
+  }
+};
+
+function applyLanguage(){
+  document.querySelectorAll("[data-lang]").forEach(el=>{
+    const key = el.getAttribute("data-lang");
+    el.innerText = textData[lang][key];
+  });
+}
+
+applyLanguage();
+</script>
 </body>
 </html>
