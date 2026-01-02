@@ -1,29 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>Products | Morya Essentials</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body{margin:0;font-family:Poppins;background:#0b0b0b;color:#fff}
-h1{text-align:center;color:#c9a24d;margin:30px}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;padding:20px}
-.card{background:#111;border-radius:16px;padding:15px;text-align:center}
-.card img{width:100%;border-radius:12px}
-a{color:#c9a24d;text-decoration:none}
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#0b0b0b;
+  color:#fff;
+}
+
+header{
+  padding:20px;
+  text-align:center;
+  background:linear-gradient(135deg,#000,#1a1a1a);
+}
+
+header h1{
+  color:#d4af37;
+  margin:0;
+  font-size:32px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  padding:30px;
+}
+
+.product-card{
+  background:#111;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+  transition:0.3s;
+}
+
+.product-card:hover{
+  transform:translateY(-5px);
+}
+
+.product-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.product-info{
+  padding:15px;
+  text-align:center;
+}
+
+.product-info h3{
+  margin:10px 0 5px;
+  color:#d4af37;
+}
+
+.product-info p{
+  font-size:14px;
+  color:#ccc;
+}
+
+.whatsapp{
+  margin-top:10px;
+  display:inline-block;
+  padding:10px 18px;
+  background:#25D366;
+  color:#fff;
+  border-radius:25px;
+  text-decoration:none;
+  font-weight:bold;
+}
 </style>
 </head>
+
 <body>
 
-<h1>Our Products</h1>
+<header>
+  <h1>Our Products</h1>
+  <p>Pure • Premium • Trusted</p>
+</header>
 
-<div class="products">
-<div class="card">
-<img src="kapoor.jpg">
-<h3>Premium Kapoor</h3>
-<p>High purity | Clean flame</p>
-</div>
-</div>
+<section class="products">
 
-<center><a href="index.html">← Back to Home</a></center>
+  <!-- PRODUCT 1 -->
+  <div class="product-card">
+    <img src="kapoor.jpg" alt="Camphor">
+    <div class="product-info">
+      <h3>Premium Camphor Tablets</h3>
+      <p>High purity camphor for daily rituals.</p>
+      <a class="whatsapp" href="https://wa.me/918767231315">Enquire on WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- PRODUCT 2 -->
+  <div class="product-card">
+    <img src="kapoor.jpg" alt="Camphor">
+    <div class="product-info">
+      <h3>Natural Camphor Powder</h3>
+      <p>Clean burning, long lasting fragrance.</p>
+      <a class="whatsapp" href="https://wa.me/918767231315">Enquire on WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- PRODUCT 3 -->
+  <div class="product-card">
+    <img src="kapoor.jpg" alt="Camphor">
+    <div class="product-info">
+      <h3>Temple Grade Camphor</h3>
+      <p>Specially crafted for temples & pooja.</p>
+      <a class="whatsapp" href="https://wa.me/918767231315">Enquire on WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- PRODUCT 4 -->
+  <div class="product-card">
+    <img src="kapoor.jpg" alt="Camphor">
+    <div class="product-info">
+      <h3>Wholesale Camphor Pack</h3>
+      <p>Bulk supply for traders & distributors.</p>
+      <a class="whatsapp" href="https://wa.me/918767231315">Enquire on WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- PRODUCT 5 -->
+  <div class="product-card">
+    <img src="kapoor.jpg" alt="Camphor">
+    <div class="product-info">
+      <h3>Custom Packed Camphor</h3>
+      <p>Private labeling & custom packaging.</p>
+      <a class="whatsapp" href="https://wa.me/918767231315">Enquire on WhatsApp</a>
+    </div>
+  </div>
+
+</section>
+
 </body>
-</html>
+  </html>
